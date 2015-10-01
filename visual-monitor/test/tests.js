@@ -71,7 +71,6 @@ describe('Visual monitor testing', function() {
             '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListBanners_rptBanners_ctl02_divBanner',
             '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListBanners_rptBanners_ctl03_divBanner',
           ],
-        remove: [],
         hide:
           [
             // Related article title and summery.
