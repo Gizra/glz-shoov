@@ -50,12 +50,35 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
+      .pause(2000)
       .webdrivercss(testName + '.homepage', {
         name: '1',
-        exclude: [],
-        remove: [],
-        hide: [],
-        screenWidth: selectedCaps == 'chrome' ? [1200] : undefined,
+        exclude:
+          [
+            // News.
+            '#ticker-holder .tickers_wrapper',
+            // Main article image.
+            '.bigImage',
+            // Related article.
+            '.grid_5',
+            // Show.
+            '.tab1 li',
+            // Now on glz.
+            '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListenToBroadcast_rptContent_ctl00_divContent',
+            // Left sidebar.
+            '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListBanners_rptBanners_ctl00_divBanner',
+            '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListBanners_rptBanners_ctl01_divBanner',
+            '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListBanners_rptBanners_ctl02_divBanner',
+            '#ctl00_ContentPlaceHolder1_ucLeftSideBar_ucSideListBanners_rptBanners_ctl03_divBanner',
+          ],
+        hide:
+          [
+            // Related article title and summery.
+            '.headlineSubTitle',
+            '.headlineText'
+
+          ],
+        screenWidth: selectedCaps == 'chrome' ? [960, 1200] : undefined,
       }, resultsCallback)
       .call(done);
   });
